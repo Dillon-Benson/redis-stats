@@ -1,0 +1,1 @@
+%w(command session).each { |file| require "redis-stats/#{file}" }

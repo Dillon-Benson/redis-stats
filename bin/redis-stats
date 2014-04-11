@@ -1,0 +1,12 @@
+#! /usr/bin/env ruby
+
+$LOAD_PATH.unshift(File.dirname(File.realpath(__FILE__)) + '/../lib')
+
+require 'redis-stats'
+
+x = gets
+while x = gets
+	RedisStats::Session << RedisStats::Command.new(x)
+	puts RedisStats::Session.most_used_data_structure
+	puts "---------------"
+end
