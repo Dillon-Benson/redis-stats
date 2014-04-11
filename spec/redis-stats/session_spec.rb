@@ -1,7 +1,5 @@
 require "spec_helper"
 
-# DATA_ARG = "1397170134.089152 [0 127.0.0.1:51958] \"LPUSH\" \"names\" \"Dillon\" \"Nelson\" \"Kristal\"".freeze
-
 describe "Session" do
 	it "should keep track of how many commands have been processed" do
 		RedisStats::Session << RedisStats::Command.new(DATA_ARG)

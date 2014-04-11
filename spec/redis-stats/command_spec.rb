@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-DATA_ARG = "1397170134.089152 [0 127.0.0.1:51958] \"LPUSH\" \"names\" \"Dillon\" \"Nelson\" \"Kristal\"".freeze
+DATA_ARG = "1397170134.089152 [0 127.0.0.1:51958] \"LPUSH\" \"names\" \"Foo\" \"Bar\" \"Baz\"".freeze
 
 describe "Command" do
 	it "should raise an ArgumentError if not created with a String object" do
@@ -21,7 +21,7 @@ describe "Command" do
 	end
 
 	it "should be able to detect if a Redis String was used as a data structure" do
-		command = RedisStats::Command.new("1397170134.089152 [0 127.0.0.1:51958] GET name \"Dillon\"")
+		command = RedisStats::Command.new("1397170134.089152 [0 127.0.0.1:51958] GET name \"Foo\"")
 		data_structure = command.data_structure
 		data_structure.should == "String"
 	end
@@ -35,7 +35,7 @@ describe "Command" do
 	it "should give back the args given to it" do
 		command = RedisStats::Command.new(DATA_ARG)
 		args = command.args
-		args[0].should == "\"Dillon\""
+		args[0].should == "\"Foo\""
 	end
 
 	it "should give back the Key used in the command" do

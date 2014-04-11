@@ -1,6 +1,6 @@
 module RedisStats
 	class Command
-		attr_reader :received_data			# "1397170134.089152 [0 127.0.0.1:51958] \"LPUSH\" \"names\" \"Dillon\" \"Nelson\" \"Kristal\""
+		attr_reader :received_data
 
 		def initialize(data)
 			raise ArgumentError, "A Command object must be initialized with a String object" if data.class != String
