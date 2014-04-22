@@ -6,7 +6,11 @@ Get stats about the commands sent to a Redis instance
 
 ## Usage
 
-  redis-cli monitor | ./bin/redis-stats
+    redis-cli monitor | ./bin/redis-stats
+
+Be sure to run:
+
+    redis-server
     
 Credit to [redis-faina](https://github.com/Instagram/redis-faina) for the above method
 
