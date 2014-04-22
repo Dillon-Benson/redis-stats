@@ -1,6 +1,6 @@
 module RedisStats
   module Exceptions
-    class ConnectionRefused < Exception
+    class ConnectionRefusedError < Exception
     end
   end
 end

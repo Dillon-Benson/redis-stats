@@ -10,7 +10,7 @@ describe "Command" do
   it "should raise a ConnectionRefusedError if redis-server isn't running" do
     Toggle.kill_redis
     str = "Could not connect to Redis at 127.0.0.1:6379: Connection refused"
-    expect { RedisStats::Command.new(str) }.to raise_error(RedisStats::Exceptions::ConnectionRefused)
+    expect { RedisStats::Command.new(str) }.to raise_error(RedisStats::Exceptions::ConnectionRefusedError)
   end
 
   it "should assign the data argument to received_data instance variable when created" do
