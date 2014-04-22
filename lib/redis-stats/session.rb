@@ -38,11 +38,16 @@ module RedisStats
 
 				lengths = [key_length, string_length, hash_length, list_length]
 
-				# Replace with a switch statement
-				return "Key" if lengths.max == key_length
-				return "String" if lengths.max == string_length
-				return "Hash" if lengths.max == hash_length
-				return "List" if lengths.max == list_length
+				case lengths.max
+				when key_length
+					return "Key"
+				when string_length
+					return "String"
+				when hash_length
+					return "Hash"
+				when list_length 
+					return "List"
+				end
 			end
 		end
 	end
