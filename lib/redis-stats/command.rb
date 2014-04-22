@@ -4,6 +4,7 @@ module RedisStats
 
 		def initialize(data)
 			raise ArgumentError, "A Command object must be initialized with a String object" if data.class != String
+			raise RedisStats::Exceptions::ConnectionRefused, "Could not connect to Redis\nDid you forget to run `redis-server`?" if data =~ /Connection refused/
 			@received_data = data
 		end
 

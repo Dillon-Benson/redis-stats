@@ -1,1 +1,1 @@
-%w(command session).each { |file| require "redis-stats/#{file}" }
+%w(command session cli exceptions).each { |file| require "redis-stats/#{file}" }
