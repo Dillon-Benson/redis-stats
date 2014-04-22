@@ -1,7 +1,5 @@
 require 'spec_helper'
 
-DATA_ARG = "1397170134.089152 [0 127.0.0.1:51958] \"LPUSH\" \"names\" \"Foo\" \"Bar\" \"Baz\"".freeze
-
 describe "Command" do
   it "should raise an ArgumentError if not created with a String object" do
     expect { RedisStats::Command.new(1) }.to raise_error(ArgumentError)

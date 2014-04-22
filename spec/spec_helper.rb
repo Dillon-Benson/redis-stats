@@ -3,6 +3,9 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 
 require 'rspec'
 require 'redis-stats'
+require 'stringio'
+
+DATA_ARG = "1397170134.089152 [0 127.0.0.1:51958] \"LPUSH\" \"names\" \"Foo\" \"Bar\" \"Baz\"".freeze
 
 class Toggle
   class << self
@@ -18,4 +21,15 @@ class Toggle
   def self.running?
     system('pgrep redis-server')
   end
+end
+
+def capture_stdout(&block)
+  original_stdout = $stdout
+  $stdout = fake = StringIO.new
+  begin
+    yield
+  ensure
+    $stdout = original_stdout
+  end
+  fake.string
 end

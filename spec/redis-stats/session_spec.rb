@@ -2,6 +2,7 @@ require "spec_helper"
 
 describe "Session" do
   it "should keep track of how many commands have been processed" do
+    RedisStats::Session.clear!
     RedisStats::Session << RedisStats::Command.new(DATA_ARG)
     RedisStats::Session << RedisStats::Command.new(DATA_ARG)
     RedisStats::Session << RedisStats::Command.new(DATA_ARG)
